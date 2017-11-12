@@ -11,7 +11,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- Table ``customers`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `customers` (
-  `customer_id` INT(8) NOT NULL,
+  `customer_id` INT(8) NOT NULL AUTO_INCREMENT,
   `customer_email` VARCHAR(45) NULL,
   `customer_password` VARCHAR(45) NULL,
   `customer_firstname` VARCHAR(45) NULL,
@@ -25,7 +25,7 @@ ENGINE = InnoDB;
 -- Table `orders`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `orders` (
-  `order_id` INT(8) NOT NULL,
+  `order_id` INT(8) NOT NULL AUTO_INCREMENT,
   `order_user_id` INT(8) NULL,
   `order_shipment_name` VARCHAR(45) NULL,
   `order_shipment_address` VARCHAR(45) NULL,
@@ -44,7 +44,7 @@ ENGINE = InnoDB;
 -- Table `products`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `products` (
-  `product_id` INT(8) NOT NULL,
+  `product_id` INT(8) NOT NULL AUTO_INCREMENT,
   `product_name` VARCHAR(45) NULL,
   `product_price` INT(10) NULL,
   `product_ininventory` INT(10) NULL,
