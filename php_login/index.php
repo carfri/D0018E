@@ -9,6 +9,7 @@ session_start();
 
 <body>
 <?php
+require('connect.php');
 if (!isset($_SESSION['id']))
 {
 	echo "<form action=login.php method='post'>
@@ -25,6 +26,21 @@ else
 	echo "<a href='logout.php'>Logout</a>";
 
 }
+	
+$query = "SELECT u.username, g.vikt, g.tid FROM Users u JOIN gym g ON u.id = g.$
+$result = mysqli_query($conn,$query);
+
+echo "<table>
+  <tr>
+    <th>name</th>
+    <th>price</th>
+    <th>ininventory</th>
+  </tr>
+  ";
+  while($row = mysqli_fetch_array($result)){   //Creates a loop to loop through results
+echo "<tr><td>" . $row['name'] . "</td><td>" . $row['price'] . "</td><td>"  .$row['ininventory']."</td></tr>"; //tr = rad; rd = sak
+echo "</tabel>";
+
 ?>
 
 </body>
