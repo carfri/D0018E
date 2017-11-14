@@ -27,7 +27,7 @@ else
 
 }
 	
-$query = "SELECT u.username, g.vikt, g.tid FROM Users u JOIN gym g ON u.id = g.$
+$query = "SELECT * from products;
 $result = mysqli_query($conn,$query);
 
 echo "<table>
