@@ -1,10 +1,13 @@
-<?php session_start(); ?>
+<?php
+session_start();
+?>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Dank website</title>
 </head>
-<body>
 
+<body>
 <?php
 if (!isset($_SESSION['id']))
 {
@@ -14,11 +17,13 @@ if (!isset($_SESSION['id']))
 	<input type='submit' value='login'>
 	</form>
 	";
+	echo "<a href='registerform.php'>Register</a>";
 }
 else	
 {
 	echo "Hello " . $_SESSION['username'] . ".";
 	echo "<a href='logout.php'>Logout</a>";
+
 }
 ?>
 
