@@ -20,6 +20,13 @@
         <label for="inputLastName" class="sr-only">Last name:</label>
         <input type="text" name="lastname" id="inputLastName" class="form-control" placeholder="Last name" required>
 	    </div>
+        <div class="input-group1">
+        <!--shipment info-->
+        <label for="inputCity" class="sr-only">City:</label>
+        <input type="text" name="city" id="inputCity" class="form-control" placeholder="City" required>
+        <label for="inputAddress" class="sr-only">Address:</label>
+        <input type="text" name="address" id="inputAddress" class="form-control" placeholder="Address" required>
+	    </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
         <a class="btn btn-lg btn-primary btn-block" href="login.php">Login</a>
       </form>

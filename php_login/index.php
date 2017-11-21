@@ -27,7 +27,7 @@ else
 
 }
 	
-$query = "SELECT * from products;
+$query = "SELECT * FROM products";
 $result = mysqli_query($conn,$query);
 
 echo "<table>
@@ -39,7 +39,9 @@ echo "<table>
   ";
   while($row = mysqli_fetch_array($result)){   //Creates a loop to loop through results
 echo "<tr><td>" . $row['name'] . "</td><td>" . $row['price'] . "</td><td>"  .$row['ininventory']."</td></tr>"; //tr = rad; rd = sak
+}
 echo "</tabel>";
+
 
 ?>
 

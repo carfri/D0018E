@@ -16,27 +16,12 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `password` VARCHAR(45) NOT NULL,
   `firstname` VARCHAR(45) NOT NULL,
   `lastname` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `orders`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `orders` (
-  `id` INT(8) NOT NULL AUTO_INCREMENT,
-  `user_id` INT(8) NOT NULL,
   `shipment_name` VARCHAR(45)NOT NULL,
   `shipment_address` VARCHAR(45) NOT NULL,
   `shipment_city` VARCHAR(45) NOT NULL,
+  `isAdmin` INT(1) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_orders_1_idx` (`user_id` ASC),
-  CONSTRAINT `fk_orders_1`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `customers` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC))
 ENGINE = InnoDB;
 
 
@@ -50,6 +35,34 @@ CREATE TABLE IF NOT EXISTS `products` (
   `ininventory` INT(10) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `orders`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `orders` (
+  `id` INT(8) NOT NULL AUTO_INCREMENT,
+  `customerID` INT(8) NOT NULL,
+  `productID` INT(8) NOT NULL,
+  `ammountOrdered` INT(4) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_orders_1_idx` (`customerID` ASC),
+  UNIQUE INDEX `product_id_UNIQUE` (`productID` ASC),
+  UNIQUE INDEX `customer_id_UNIQUE` (`customerID` ASC),
+  CONSTRAINT `fk_orders_1`
+    FOREIGN KEY (`customerID`)
+    REFERENCES `customers` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_orders_2`
+    FOREIGN KEY (`productID`)
+    REFERENCES `products` (`id`)
+	ON DELETE NO ACTION
+	ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 -- -----------------------------------------------------
