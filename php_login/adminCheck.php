@@ -1,6 +1,5 @@
-session_start();
-
 <?php
+	session_start();
 	require('connect.php');
     
     //chek if user is admin status

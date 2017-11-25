@@ -10,7 +10,7 @@ $qry = "SELECT email, password, isAdmin FROM customers WHERE email='$username' a
 $result = mysqli_query($conn,$qry);
 //print_r ($result);
 if(!$result || mysqli_num_rows($result) <= 0){
-	echo "Hey buddy, I think you've got the wrong door, the leather club's two blocks down.";
+	echo "Fel";
 }else{
 	$row = mysqli_fetch_assoc($result);
 	$_SESSION['email'] = $row['email'];

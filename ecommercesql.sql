@@ -90,3 +90,6 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+INSERT INTO customers (email, password, firstname, lastname, shipment_name, shipment_address, shipment_city, isAdmin)
+VALUES ("root", "root", "root", "root", "root", "root", "root", 1);
