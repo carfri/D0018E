@@ -11,32 +11,17 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- Table ``customers`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `customers` (
-  `customer_id` INT(8) NOT NULL AUTO_INCREMENT,
-  `customer_email` VARCHAR(45) NULL,
-  `customer_password` VARCHAR(45) NULL,
-  `customer_firstname` VARCHAR(45) NULL,
-  `customer_lastname` VARCHAR(45) NULL,
-  PRIMARY KEY (`customer_id`),
-  UNIQUE INDEX `customer_email_UNIQUE` (`customer_email` ASC))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `orders`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `orders` (
-  `order_id` INT(8) NOT NULL AUTO_INCREMENT,
-  `order_user_id` INT(8) NULL,
-  `order_shipment_name` VARCHAR(45) NULL,
-  `order_shipment_address` VARCHAR(45) NULL,
-  `order_shipment_city` VARCHAR(45) NULL,
-  PRIMARY KEY (`order_id`),
-  INDEX `fk_orders_1_idx` (`order_user_id` ASC),
-  CONSTRAINT `fk_orders_1`
-    FOREIGN KEY (`order_user_id`)
-    REFERENCES `customers` (`customer_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `id` INT(8) NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `firstname` VARCHAR(45) NOT NULL,
+  `lastname` VARCHAR(45) NOT NULL,
+  `shipment_name` VARCHAR(45)NOT NULL,
+  `shipment_address` VARCHAR(45) NOT NULL,
+  `shipment_city` VARCHAR(45) NOT NULL,
+  `isAdmin` INT(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC))
 ENGINE = InnoDB;
 
 
@@ -44,38 +29,64 @@ ENGINE = InnoDB;
 -- Table `products`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `products` (
-  `product_id` INT(8) NOT NULL AUTO_INCREMENT,
-  `product_name` VARCHAR(45) NULL,
-  `product_price` INT(10) NULL,
-  `product_ininventory` INT(10) NULL,
-  PRIMARY KEY (`product_id`))
+  `id` INT(8) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `price` INT(10) NOT NULL,
+  `ininventory` INT(10) NOT NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `orders`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `orders` (
+  `id` INT(8) NOT NULL AUTO_INCREMENT,
+  `customerID` INT(8) NOT NULL,
+  `productID` INT(8) NOT NULL,
+  `ammountOrdered` INT(4) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_orders_1_idx` (`customerID` ASC),
+  UNIQUE INDEX `product_id_UNIQUE` (`productID` ASC),
+  UNIQUE INDEX `customer_id_UNIQUE` (`customerID` ASC),
+  CONSTRAINT `fk_orders_1`
+    FOREIGN KEY (`customerID`)
+    REFERENCES `customers` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_orders_2`
+    FOREIGN KEY (`productID`)
+    REFERENCES `products` (`id`)
+	ON DELETE NO ACTION
+	ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 -- -----------------------------------------------------
 -- Table `orderdetails`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `orderdetails` (
-  `Order_detail_id` INT(8) NOT NULL,
-  `product_id` INT(8) NULL,
-  `order_id` INT(8) NULL,
-  PRIMARY KEY (`Order_detail_id`),
+  `id` INT(8) NOT NULL AUTO_INCREMENT,
+  `product_id` INT(8) NOT NULL,
+  `order_id` INT(8) NOT NULL,
+  PRIMARY KEY (`id`),
   INDEX `fk_orderdetails_1_idx` (`product_id` ASC),
   UNIQUE INDEX `product_id_UNIQUE` (`product_id` ASC),
   UNIQUE INDEX `order_id_UNIQUE` (`order_id` ASC),
   CONSTRAINT `fk_orderdetails_1`
     FOREIGN KEY (`product_id`)
-    REFERENCES `products` (`product_id`)
+    REFERENCES `products` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_orderdetails_2`
     FOREIGN KEY (`order_id`)
-    REFERENCES orders` (`order_id`)
+    REFERENCES `orders` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
