@@ -14,7 +14,8 @@ if(!$result || mysqli_num_rows($result) <= 0){
 }else{
 	$row = mysqli_fetch_assoc($result);
 	$_SESSION['email'] = $row['email'];
-    $_SESSION['isAdmin'] = $row['isAdmin'];
+    	$_SESSION['isAdmin'] = $row['isAdmin'];
+	$_SESSION['id'] = $row['id'];
     if($_SESSION['isAdmin'] == '1'){
         header('Location: adminWelcome.php');
 	}else {
