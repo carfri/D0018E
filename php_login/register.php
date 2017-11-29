@@ -12,7 +12,7 @@
         $address = $_POST['address'];
         echo 'got this far';
  
-        $sql = "INSERT INTO customers (email, password, firstname, lastname, shipment_address, shipment_city, isAdmin) VALUES ('$email', '$password', '$firstname', '$lastname', '$address', '$city', '0')";
+        $sql = "INSERT INTO customers (email, password, firstname, lastname,shipment_name,shipment_address, shipment_city, isAdmin) VALUES ('$email', '$password', '$firstname', '$lastname','?' ,'$address', '$city', '0')";
         if($conn->query($sql) === TRUE){
             header('Location: index.php');
             echo "User Created Successfully.";

@@ -47,8 +47,8 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `ammountOrdered` INT(4) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_orders_1_idx` (`customerID` ASC),
-  UNIQUE INDEX `product_id_UNIQUE` (`productID` ASC),
-  UNIQUE INDEX `customer_id_UNIQUE` (`customerID` ASC),
+  INDEX `product_id_UNIQUE` (`productID` ASC),
+  INDEX `customer_id_UNIQUE` (`customerID` ASC),
   CONSTRAINT `fk_orders_1`
     FOREIGN KEY (`customerID`)
     REFERENCES `customers` (`id`)
