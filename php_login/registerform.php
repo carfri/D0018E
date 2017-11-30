@@ -1,7 +1,7 @@
 <html>
 <body>
 <div class="container">
-      <form class="form-signin" action="register.php" method="POST">
+      <form class="form-signin" action="action/register.php" method="POST">
         <h2 class="form-signin-heading">Register new user</h2>
 
         <!--input form for email-->

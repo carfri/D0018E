@@ -6,7 +6,7 @@
     $qry = "DELETE FROM orders WHERE id = '$id'";
     mysqli_query($conn,$qry);
 
-    header('Location: basket.php');
+    header('Location: ../basket.php');
 
     $conn->close();
     exit();

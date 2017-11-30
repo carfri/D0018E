@@ -19,9 +19,9 @@ if(!$result || mysqli_num_rows($result) <= 0){
     $_SESSION['isAdmin'] = $row['isAdmin'];
 	$_SESSION['id'] = $row['id'];
     if($_SESSION['isAdmin'] == '1'){
-        header('Location: adminWelcome.php');
+        header('Location: ../adminWelcome.php');
 	}else {
-        header('Location: userWelcome.php');
+        header('Location: ../userWelcome.php');
     }
 }
 

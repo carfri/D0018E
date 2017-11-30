@@ -10,7 +10,7 @@ $ininventory = trim($_POST['ininventory']);
 $qry = "INSERT INTO products (name, price, ininventory) VALUES ('$name', '$price','$ininventory')";
 $result = mysqli_query($conn,$qry);
 
-header('Location: adminWelcome.php');
+header('Location: ../adminWelcome.php');
 
 $conn->close();
 exit();

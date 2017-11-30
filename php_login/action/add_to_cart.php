@@ -16,7 +16,7 @@
         $qry2 = "UPDATE orders SET ammountOrdered = ammountOrdered + 1 WHERE productID =" . $item . " AND customerID=" . $_SESSION['id'];
         mysqli_query($conn, $qry2);
     }
-    header('Location: userWelcome.php');
+    header('Location: ../userWelcome.php');
 	$conn->close();
 	exit();
 ?>

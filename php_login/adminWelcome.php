@@ -10,7 +10,7 @@
 			if(isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin'] = 1)
 			{
 				echo "<h1>admin</h1><br>";
-				echo "<form action=additem.php method='post'>
+				echo "<form action=action/additem.php method='post'>
 				name: <input type='text' name='name'><br>
 				price: <input type='text' name='price'><br>
 				ininventory: <input type='text' name='ininventory'><br>
@@ -18,13 +18,13 @@
 				</form>
 				";
 				echo "<br><br>";
-				echo "<form action=delitem.php method='post'>
+				echo "<form action=action/delitem.php method='post'>
 				id: <input type='text' name='id'><br>
 				<input type='submit' value='remove'>
 				</form>
 				";
 				echo "<br>lager<br>";
-				echo "<form action=inv.php method='post'>
+				echo "<form action=action/inv.php method='post'>
 				id: <input type='text' name='id'><br>
 				new inv: <input type='text' name='inv'><br>
 				<input type='submit' value='chabge'>
@@ -33,14 +33,14 @@
 				
 				
 				echo "<br>mod user<br>";
-				echo "<form action=mod.php method='post'>
+				echo "<form action=action/mod.php method='post'>
 				name: <input type='text' name='name'><br>
 				<input type='submit' value='remove'>
 				</form>
 				";
 				
 				echo "<br>demod user<br>";
-				echo "<form action=de.php method='post'>
+				echo "<form action=action/de.php method='post'>
 				name: <input type='text' name='name'><br>
 				<input type='submit' value='remove'>
 				</form>
