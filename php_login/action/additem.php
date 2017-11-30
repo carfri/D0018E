@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require('connect.php');
+require('../connect.php');
 
 $name = trim($_POST['name']);
 $price = trim($_POST['price']);

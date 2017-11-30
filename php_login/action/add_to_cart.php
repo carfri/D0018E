@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	require('connect.php');
+	require('../connect.php');
     
 	$item = trim($_POST['b']);
     $qry1 = "SELECT id FROM orders WHERE productID =" . $item . " AND customerID=" . $_SESSION['id'];

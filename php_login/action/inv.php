@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require('connect.php');
+require('../connect.php');
 
 $id = trim($_POST['id']);
 $inv = trim($_POST['inv']);

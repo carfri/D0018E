@@ -1,7 +1,7 @@
 
 <?php
-    require('connect.php');
-    require('registerform.php');
+    require('../connect.php');
+    require('../registerform.php');
     // If the values are posted, insert them into the database.
     if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['city']) && isset($_POST['address'])){
         $email = $_POST['email'];

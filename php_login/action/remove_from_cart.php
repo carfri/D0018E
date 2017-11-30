@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require('connect.php');
+    require('../connect.php');
 
     $id = trim($_POST['b']);
     $qry = "DELETE FROM orders WHERE id = '$id'";
