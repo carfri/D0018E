@@ -1,6 +1,10 @@
 <?php
 	session_start();
+	if (!isset($_SESSION['email'])){
+        header("Location: index.php");
+    }
 	echo "Hello " . $_SESSION['email'] . ".";
+    echo " <a href='index.php'>Take me back</a> | ";
 	require('connect.php');
 	$query = "SELECT * FROM products";
 	$result = mysqli_query($conn,$query);

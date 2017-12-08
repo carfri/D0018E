@@ -4,6 +4,7 @@
     $query2 = "SELECT o.id, p.name, o.ammountOrdered FROM orders o JOIN products p ON p.id = o.productID WHERE o.customerID=" . $_SESSION['id'];
 
     $result2 = mysqli_query($conn, $query2);
+    echo "<a href='userWelcome.php'>Back to store</a>";
 
     echo "<table>
 	  <tr>
