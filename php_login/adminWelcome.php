@@ -27,7 +27,15 @@
 				echo "<form action=action/inv.php method='post'>
 				id: <input type='text' name='id'><br>
 				new inv: <input type='text' name='inv'><br>
-				<input type='submit' value='chabge'>
+				<input type='submit' value='change'>
+				</form>
+				";
+
+				echo "<br>change price<br>";
+				echo "<form action=action/price.php method='post'>
+				id: <input type='text' name='id'><br>
+				new price: <input type='text' name='price'><br>
+				<input type='submit' value='change'>
 				</form>
 				";
 				
@@ -35,14 +43,14 @@
 				echo "<br>mod user<br>";
 				echo "<form action=action/mod.php method='post'>
 				name: <input type='text' name='name'><br>
-				<input type='submit' value='remove'>
+				<input type='submit' value='mod'>
 				</form>
 				";
 				
 				echo "<br>demod user<br>";
 				echo "<form action=action/de.php method='post'>
 				name: <input type='text' name='name'><br>
-				<input type='submit' value='remove'>
+				<input type='submit' value='demod'>
 				</form>
 				";
 				
