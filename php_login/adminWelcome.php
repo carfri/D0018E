@@ -7,7 +7,7 @@
 		<?php
 			require('connect.php');
 			session_start();
-			if(isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin'] = 1)
+			if(isset($_SESSION['isAdmin']) AND $_SESSION['isAdmin'] == 1)
 			{
 				echo "<h1>admin</h1><br>";
 				echo "<form action=action/additem.php method='post'>

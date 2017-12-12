@@ -17,8 +17,7 @@
 				";
 				
 				
-				$query = "SELECT o.id, o.ammountOrdered, p.name, c.email, c.firstname, c.lastname, c.shipment_address, shipment_city FROM orders o  join customers c  on o.customerID = c.id join products p on p.id = o.productID WHERE statusATM = 'bought'
-";
+				$query = "SELECT o.id, o.ammountOrdered, p.name, c.email, c.firstname, c.lastname, c.shipment_address, shipment_city FROM orders o  join customers c  on o.customerID = c.id join products p on p.id = o.productID WHERE statusATM = 'bought'";
 				$result = mysqli_query($conn,$query);
 				
 				echo "<table>
@@ -44,4 +43,5 @@
 			}
 		?>
 	</body>
+
 </html>
