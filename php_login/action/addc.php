@@ -9,8 +9,9 @@
     $qry1 = "SELECT customerID FROM comments WHERE productID = $id AND customerID =" . $_SESSION['id'];
     $result1 = mysqli_query($conn, $qry1);
     if(!$result1 || mysqli_num_rows($result1) >= 1){
-        echo "You can only leave 1 comment on this product.";
-        echo '<a href=../product.php?id=' . $id . '>Back to product</a>';
+        $qry1 = "UPDATE comments SET comment= '$comment', rating= '$rating' WHERE productID = $id AND customerID=" . $_SESSION['id'];
+        mysqli_query($conn, $qry1);
+        header('Location: ../product.php?id='.$id);
     }else{
 	    $qry = "INSERT INTO comments (comment, customerID, productID, rating) VALUES ('$comment', '" . $_SESSION['id'] . "', '$id', '$rating')";
 	    $result = mysqli_query($conn,$qry);
