@@ -26,13 +26,13 @@
 	
     echo "<table>
 	  <tr>
-		<th>| User | </th>
-		<th>comment | </th>
-		<th>rating |</th>
+		<th>| User |</th>
+		<th>| comment |</th>
+		<th>| rating |</th>
 	  </tr>
 	  ";
         while($row = mysqli_fetch_array($result1)){
-		    echo "<tr><td>" . $row['email'] . "</td><td>" . $row['comment'] . "</td><td>" . $row['rating'] . "</td></tr>"; //tr = rad; rd = sak
+		    echo "<tr><td>" . $row['email'] . "</td><td>" . $row['comment'] . " </td><td> " . $row['rating'] . "</td></tr>"; //tr = rad; rd = sak
         }
 
 	echo "</tabel>";
