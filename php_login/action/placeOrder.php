@@ -12,6 +12,9 @@
 	$r2 = mysqli_query($conn, $qry2);
 	$row = mysqli_fetch_array($r2);
 	$two = $row['total'];
+    echo "10 sekunders buy-time!";
+    echo "<br>";
+    echo "<a href='../userWelcome.php'>Back to store</a>";
 
 	if($one == $two)
 	{
