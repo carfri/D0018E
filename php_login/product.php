@@ -1,5 +1,6 @@
 <?php
 	require('connect.php');
+    echo "<a href='userWelcome.php'>Store front</a>";
 	$product = $_GET['id'];
 	$query = "SELECT name, price, ininventory FROM products WHERE id = '" . $product . "'" ;
 	$query1 = "SELECT cus.email, c.comment, c.rating FROM comments c JOIN customers cus ON cus.id = c.customerID WHERE c.productID = " . $product;

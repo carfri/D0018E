@@ -24,6 +24,11 @@
 	{
 		echo "Hello " . $_SESSION['email'] . ".";
 		echo "<a href='action/logout.php'>Logout</a>";
+        echo "<br>";
+        echo "<br>";
+        echo "<a href='userWelcome.php'>Store front</a>";
+        echo "<br>";
+        echo "<a href='basket.php'>Basket</a>";
 
 	}
 
