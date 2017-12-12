@@ -53,6 +53,14 @@
 				<input type='submit' value='demod'>
 				</form>
 				";
+
+			echo "<br>remove rating<br>";
+				echo "<form action=action/removec.php method='post'>
+				id: <input type='text' name='id'><br>
+				name: <input type='text' name='name'><br>
+				<input type='submit' value='remove'>
+				</form>
+				";
 				
 				$query = "SELECT * FROM products";
 				$result = mysqli_query($conn,$query);
