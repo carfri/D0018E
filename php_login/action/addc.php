@@ -9,7 +9,7 @@
     $qry1 = "SELECT customerID FROM comments WHERE productID = $id AND customerID =" . $_SESSION['id'];
     $result1 = mysqli_query($conn, $qry1);
 
-	$qry = "select customerID from orders where statusATM = 'shiped' and ProductID = $id and customerID =". $_SESSION['id'];
+	$qry = "select customerID from orders where statusATM = 'bought' and ProductID = $id and customerID =". $_SESSION['id'];
 	$r = mysqli_query($conn, $qry);
 	if(mysqli_num_rows($r) > 0){
 
